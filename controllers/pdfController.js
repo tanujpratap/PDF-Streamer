@@ -57,3 +57,17 @@ else{
     fs.createReadStream(filePath).pipe(res)
 }
 }
+module.exports.listPDF=async(req,res)=>{
+   try{
+     const{lang}=req.query
+    const condition=lang?{language:lang}:{}
+    const pdfs=await PDF.findAll({
+        where:condition,
+        attributes:['id','title','descryption','language','uploaded_by']
+    })
+    res.json({total:pdfs.length,pdfs})
+   }
+   catch(err){
+    res.status(500).json({message:err.message})
+   }
+}
