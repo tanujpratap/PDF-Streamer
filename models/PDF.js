@@ -18,7 +18,19 @@ allowNull:false
     uploaded_by:{
 type:DataTypes.INTEGER,
 allowNull:false
-    }, file_path: { type: DataTypes.STRING, allowNull: false }
+    }, file_path: { type: DataTypes.STRING, allowNull: false },
+    views:{
+type:DataTypes.INTEGER,
+defaultValue:0
+    },
+    downloads:{
+type:DataTypes.INTEGER,
+defaultValue:0
+    },
+    translations:{
+        type:DataTypes.JSONB,
+        defaultValue:{}
+    }
 
 })
 module.exports=PDF
