@@ -14,7 +14,7 @@ console.log('✅ Middleware and routes being set up...');
 app.use('/auth', authRoutes);
 app.use('/pdf',pdfRoutes)
 app.use('/users', userRoutes);
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5432;
 
 console.log('✅ Syncing DB...');
 db.sequelize.sync({  alter: true })
